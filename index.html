@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Wardrobe Stylist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+
+    <!-- Main App Container -->
+    <main id="app">
+
+        <!-- 1. HOME PAGE -->
+        <section id="home-page" class="page active">
+            <header class="navbar">
+                <div class="logo">AI Stylist</div>
+            </header>
+
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Style Your Own Wardrobe with AI</h1>
+                    <p class="subtitle">Upload your existing clothes and let AI create the perfect outfit for any
+                        occasion.</p>
+                    <button class="btn btn-primary" onclick="app.navigateTo('avatar-page')">Get Styled</button>
+
+                    <div class="features">
+                        <div class="feature-item">
+                            <ion-icon name="shirt-outline"></ion-icon>
+                            <span>Wardrobe-based styling</span>
+                        </div>
+                        <div class="feature-item">
+                            <ion-icon name="sparkles-outline"></ion-icon>
+                            <span>Occasion-ready looks</span>
+                        </div>
+                        <div class="feature-item">
+                            <ion-icon name="color-palette-outline"></ion-icon>
+                            <span>Personalized for you</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for the generated image -->
+                    <img src="./hero_luxury.png" alt="Fashion Illustration" id="hero-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 1.5 AVATAR PAGE (NEW) -->
+        <section id="avatar-page" class="page hidden">
+            <div class="card centered-card animate-up">
+                <h2>Create Your Avatar</h2>
+                <p class="card-desc">Personalize your virtual stylist.</p>
+
+                <div class="avatar-preview-container">
+                    <img src="./avatar_placeholder.png" alt="Avatar Preview" id="avatar-preview-img">
+                </div>
+
+                <form id="avatar-form">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select id="user-gender">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="non-binary">Non-binary</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Face Shape</label>
+                        <select id="user-face">
+                            <option value="oval">Oval</option>
+                            <option value="round">Round</option>
+                            <option value="square">Square</option>
+                            <option value="heart">Heart</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="app.navigateTo('details-page')">Continue
+                        Styling</button>
+                    <button type="button" class="btn btn-secondary" onclick="app.navigateTo('home-page')">Back</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 2. DETAILS PAGE -->
+        <section id="details-page" class="page hidden">
+            <div class="card centered-card animate-up">
+                <h2>Tell us about yourself</h2>
+                <p class="card-desc">Help AI understand your needs for the perfect look.</p>
+
+                <form id="details-form">
+                    <div class="form-group">
+                        <label for="occasion">Occasion</label>
+                        <select id="occasion" required>
+                            <option value="" disabled selected>Select an occasion</option>
+                            <option value="party">Party / Clubbing</option>
+                            <option value="wedding">Wedding Guest</option>
+                            <option value="casual-meet">Friends Meet</option>
+                            <option value="dj-night">DJ Night</option>
+                            <option value="formal">Office / Formal</option>
+                            <option value="traditional">Traditional Day</option>
+                            <option value="college">College Events</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="style-pref">Style Preference</label>
+                        <select id="style-pref" required>
+                            <option value="western">Western</option>
+                            <option value="traditional">Traditional</option>
+                            <option value="indo-western">Indo-Western</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height-range">Height Range (Optional)</label>
+                        <select id="height-range">
+                            <option value="petite">Petite (< 5'3")</option>
+                            <option value="average">Average (5'3" - 5'7")</option>
+                            <option value="tall">Tall (> 5'7")</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="body-type">Body Type</label>
+                        <select id="body-type" required>
+                            <option value="" disabled selected>Select body type</option>
+                            <option value="hourglass">Hourglass</option>
+                            <option value="pear">Pear Shape</option>
+                            <option value="apple">Apple Shape</option>
+                            <option value="rectangle">Rectangle / Athletic</option>
+                            <option value="inverted-triangle">Inverted Triangle</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skin-tone">Skin Tone</label>
+                        <select id="skin-tone" required>
+                            <option value="" disabled selected>Select skin tone</option>
+                            <option value="fair">Fair</option>
+                            <option value="medium">Medium / Wheatish</option>
+                            <option value="olive">Olive</option>
+                            <option value="tan">Tan / Brown</option>
+                            <option value="dark">Dark / Deep</option>
+                        </select>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary"
+                            onclick="app.navigateTo('avatar-page')">Back</button>
+                        <button type="button" class="btn btn-primary" onclick="app.saveDetailsAndContinue()">Continue to
+                            Wardrobe</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- 3. WARDROBE UPLOAD PAGE -->
+        <section id="upload-page" class="page hidden">
+            <div class="card wide-card animate-up">
+                <h2>Upload Your Wardrobe</h2>
+                <p class="card-desc">Upload photos of your clothes. AI will mix and match them.</p>
+
+                <div class="upload-grid">
+                    <!-- Top Upload -->
+                    <div class="upload-section">
+                        <h3>Tops / Shirts</h3>
+                        <div class="file-upload-area" id="top-upload-area">
+                            <input type="file" id="top-file" accept="image/*" multiple hidden>
+                            <div class="upload-placeholder" onclick="document.getElementById('top-file').click()">
+                                <ion-icon name="cloud-upload-outline"></ion-icon>
+                                <p>Click to Upload Tops</p>
+                                <span class="sub-text">(Select multiple)</span>
+                            </div>
+                            <div class="preview-grid" id="top-preview"></div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Upload -->
+                    <div class="upload-section">
+                        <h3>Bottoms / Pants</h3>
+                        <div class="file-upload-area" id="bottom-upload-area">
+                            <input type="file" id="bottom-file" accept="image/*" multiple hidden>
+                            <div class="upload-placeholder" onclick="document.getElementById('bottom-file').click()">
+                                <ion-icon name="cloud-upload-outline"></ion-icon>
+                                <p>Click to Upload Bottoms</p>
+                                <span class="sub-text">(Select multiple)</span>
+                            </div>
+                            <div class="preview-grid" id="bottom-preview"></div>
+                        </div>
+                    </div>
+
+                    <!-- Dresses Upload -->
+                    <div class="upload-section">
+                        <h3>Dresses / Traditional</h3>
+                        <div class="file-upload-area" id="dress-upload-area">
+                            <input type="file" id="dress-file" accept="image/*" multiple hidden>
+                            <div class="upload-placeholder" onclick="document.getElementById('dress-file').click()">
+                                <ion-icon name="woman-outline"></ion-icon>
+                                <p>Upload Dresses</p>
+                                <span class="sub-text">(Optional)</span>
+                            </div>
+                            <div class="preview-grid" id="dress-preview"></div>
+                        </div>
+                    </div>
+
+                    <!-- Footwear Upload -->
+                    <div class="upload-section">
+                        <h3>Footwear</h3>
+                        <div class="file-upload-area" id="shoe-upload-area">
+                            <input type="file" id="shoe-file" accept="image/*" multiple hidden>
+                            <div class="upload-placeholder" onclick="document.getElementById('shoe-file').click()">
+                                <ion-icon name="footsteps-outline"></ion-icon>
+                                <p>Upload Footwear</p>
+                                <span class="sub-text">(Optional)</span>
+                            </div>
+                            <div class="preview-grid" id="shoe-preview"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions center-actions">
+                    <button type="button" class="btn btn-secondary"
+                        onclick="app.navigateTo('details-page')">Back</button>
+                    <button type="button" class="btn btn-primary" id="generate-btn"
+                        onclick="app.generateOutfit()">Generate My Outfit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. LOADING OVERLAY -->
+        <div id="loading-overlay" class="hidden">
+            <div class="loader"></div>
+            <p class="loading-text">Analyzing your wardrobe...</p>
+        </div>
+
+        <!-- 5. RESULT PAGE -->
+        <section id="result-page" class="page hidden">
+            <div class="result-header">
+                <h2>Your AI-Curated Outfit</h2>
+                <p class="badge">Styled from your wardrobe</p>
+            </div>
+
+            <div class="outfit-display animate-up">
+                <div class="garment-card">
+                    <span class="label">Selected Top</span>
+                    <img src="" id="result-top-img" alt="Selected Top">
+                </div>
+                <div class="plus-sign">+</div>
+                <div class="garment-card">
+                    <span class="label">Selected Bottom</span>
+                    <img src="" id="result-bottom-img" alt="Selected Bottom">
+                </div>
+            </div>
+
+            <div class="styling-advice-card animate-up delay-1">
+                <h3><ion-icon name="sparkles"></ion-icon> AI Styling Tips</h3>
+                <p id="ai-advice-text">Loading advice...</p>
+            </div>
+
+            <div class="accessories-grid animate-up delay-2">
+                <div class="accessory-card">
+                    <div class="icon-box"><ion-icon name="brush-outline"></ion-icon></div>
+                    <h4>Makeup</h4>
+                    <p id="makeup-tip">Neutral glow</p>
+                </div>
+                <div class="accessory-card">
+                    <div class="icon-box"><ion-icon name="diamond-outline"></ion-icon></div>
+                    <h4>Jewellery</h4>
+                    <p id="jewellery-tip">Minimal gold chain</p>
+                </div>
+                <div class="accessory-card">
+                    <div class="icon-box"><ion-icon name="footsteps-outline"></ion-icon></div>
+                    <h4>Footwear</h4>
+                    <p id="footwear-tip">White sneakers</p>
+                </div>
+                <div class="accessory-card">
+                    <div class="icon-box"><ion-icon name="cut-outline"></ion-icon></div>
+                    <h4>Hairstyle</h4>
+                    <p id="hairstyle-tip">Soft waves</p>
+                </div>
+            </div>
+
+            <div class="form-actions center-actions">
+                <button class="btn btn-secondary" onclick="app.navigateTo('upload-page')">Try Another Combo</button>
+                <button class="btn btn-primary" onclick="app.navigateTo('home-page')">Start Over</button>
+            </div>
+
+            <footer>
+                <p>Powered by Generative AI</p>
+            </footer>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
